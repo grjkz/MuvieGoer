@@ -1,9 +1,18 @@
 <nav class="nav-wrapper">
 	<%= link_to('Muvie Goer', root_path, {class: 'brand-logo center'}) %>
-	<ul class="right hide-on-med-and-down">
-		<li><%= link_to("Login", '/login') %></li>
-		<li><%= link_to("Sign Up", '/signup') %></li>
+	
+	<ul class="left hide-on-med-and-down">
+		<!-- SHOW IF USER IS LOGGED IN -->
+		<% if (session[:user_id]) %>
+			<li><%= link_to("Log Out", '/signout') %></li>
+		<!-- SHOW IF USER IS NOT LOGGED IN -->
+		<% else %>
+			<li><%= link_to("Login", '/login') %></li>
+			<li><%= link_to("Sign Up", '/signup') %></li>
+		<% end %>
 	</ul>
+	
+	<!-- SEARCH FORM -->
 	<div class="right hide-on-small-only">
 		<%= form_tag('/movies/search', method: 'get') do %>
 				<div class="input-field">
@@ -14,7 +23,9 @@
 				</div>
 			<% end %>
 	</div>
-
+	<!-- END SEARCH FORM -->
+	
+	<!-- MOBILE NAV BAR -->
 	<a class="left button-collapse margin-left-10" data-activates="mobile-nav"><i class="mdi mdi-menu"></i></a>
 	<ul id="mobile-nav" class="side-nav red lighten-3">
 		<li>
@@ -29,7 +40,14 @@
 					<% end %>
 			</div>
 		</li>
-		<li><%= link_to("Login", '/login') %></li>
-		<li><%= link_to("Sign Up", '/signup') %></li>
+		<!-- SHOW IF USER IS LOGGED IN -->
+		<% if (session[:user_id]) %>
+			<li><%= link_to("Log Out", '/signout') %></li>
+		<!-- SHOW IF USER IS NOT LOGGED IN -->
+		<% else %>
+			<li><%= link_to("Login", '/login') %></li>
+			<li><%= link_to("Sign Up", '/signup') %></li>
+		<% end %>
 	</ul>
+	<!-- END MOBILE NAV BAR -->
 </nav>
