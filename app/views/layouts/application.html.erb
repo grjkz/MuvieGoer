@@ -4,9 +4,12 @@
   <title>Moviedatabase</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://cdn.materialdesignicons.com/1.5.54/css/materialdesignicons.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<%= render "nav" %>
 
 <%= yield %>
 

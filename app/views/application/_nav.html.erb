@@ -1,0 +1,35 @@
+<nav class="nav-wrapper">
+	<%= link_to('Muvie Goer', root_path, {class: 'brand-logo center'}) %>
+	<ul class="right hide-on-med-and-down">
+		<li><%= link_to("Login", '/login') %></li>
+		<li><%= link_to("Sign Up", '/signup') %></li>
+	</ul>
+	<div class="right hide-on-small-only">
+		<%= form_tag('/movies/search', method: 'get') do %>
+				<div class="input-field">
+					<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
+					<%= label_tag(:search) do %>
+						<i class="mdi mdi-magnify"></i>
+					<% end %>
+				</div>
+			<% end %>
+	</div>
+
+	<a class="left button-collapse margin-left-10" data-activates="mobile-nav"><i class="mdi mdi-menu"></i></a>
+	<ul id="mobile-nav" class="side-nav red lighten-3">
+		<li>
+			<div class="hide-on-med-and-up">
+				<%= form_tag('/movies/search', method: 'get') do %>
+						<div class="input-field">
+							<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
+							<%= label_tag(:search) do %>
+								<i class="mdi mdi-magnify"></i>
+							<% end %>
+						</div>
+					<% end %>
+			</div>
+		</li>
+		<li><%= link_to("Login", '/login') %></li>
+		<li><%= link_to("Sign Up", '/signup') %></li>
+	</ul>
+</nav>
