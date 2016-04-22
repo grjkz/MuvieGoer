@@ -2,12 +2,12 @@
 	<%= link_to('Muvie Goer', root_path, {class: 'brand-logo center'}) %>
 	
 	<ul class="left hide-on-med-and-down">
-		<!-- SHOW IF USER IS LOGGED IN -->
 		<% if (session[:user_id]) %>
+		<!-- SHOW IF USER IS LOGGED IN -->
 			<li><%= link_to("Log Out", '/signout') %></li>
-		<!-- SHOW IF USER IS NOT LOGGED IN -->
 		<% else %>
-			<li><%= link_to("Login", '/login') %></li>
+		<!-- SHOW IF USER IS NOT LOGGED IN -->
+			<li><%= link_to("Login", '/signin') %></li>
 			<li><%= link_to("Sign Up", '/signup') %></li>
 		<% end %>
 	</ul>
@@ -40,12 +40,12 @@
 					<% end %>
 			</div>
 		</li>
-		<!-- SHOW IF USER IS LOGGED IN -->
 		<% if (session[:user_id]) %>
+		<!-- SHOW IF USER IS LOGGED IN -->
 			<li><%= link_to("Log Out", '/signout') %></li>
-		<!-- SHOW IF USER IS NOT LOGGED IN -->
 		<% else %>
-			<li><%= link_to("Login", '/login') %></li>
+		<!-- SHOW IF USER IS NOT LOGGED IN -->
+			<li><%= link_to("Login", '/signin') %></li>
 			<li><%= link_to("Sign Up", '/signup') %></li>
 		<% end %>
 	</ul>

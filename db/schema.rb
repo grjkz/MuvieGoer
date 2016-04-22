@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20160422025411) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "alias",           limit: 20, null: false
+    t.string   "alias",           limit: 20,                 null: false
     t.string   "password_digest"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "admin",                      default: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "users", ["alias"], name: "index_users_on_alias", unique: true, using: :btree

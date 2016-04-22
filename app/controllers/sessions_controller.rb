@@ -3,19 +3,23 @@ class SessionsController < ApplicationController
 		@user = User.new
 	end
 
+	# user is logging on; create session cookie
   def create
-  	@user = User.find_by("lower(alias) = ?", params[:alias])
-  	if (@user && @user.authenticate(params[:password]))
+  	@user = User.find_by("lower(alias) = ?", user_params[:alias])
+  	
+  	if (@user && @user.authenticate(user_params[:password]))
+  		session[:admin] = @user.admin
   		session[:user_id] = @user.id
   		redirect_to root_path
   	else
   		flash[:error] = "Invalid Username/Password"
-  		redirect_to login_path
+  		redirect_to signin_path
   	end
   end
 
   def destroy
-  
+  	reset_session
+  	redirect_to :back
   end
 
   private
