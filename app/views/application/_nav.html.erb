@@ -1,6 +1,10 @@
 <nav class="nav-wrapper">
-	<%= link_to('Muvie Goer', root_path, {class: 'brand-logo center'}) %>
-	
+	<% if (session[:admin]) %>
+		<span class="brand-logo center">You're an Admin!</span>
+	<% else %>
+		<%= link_to('Muvie Goer', root_path, {class: 'brand-logo center'}) %>
+	<% end %>
+
 	<ul class="left hide-on-med-and-down">
 		<% if (session[:user_id]) %>
 		<!-- SHOW IF USER IS LOGGED IN -->
