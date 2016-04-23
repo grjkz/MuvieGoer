@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="main">
+		
+		<div class="new-movie-card">
+			
+			<%= form_for(@movie, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
+				<div class="input-field">
+					<%= f.text_field(:title) %>
+					<%= f.label(:title, "Title") %>
+				</div>
+				<div class="input-field">
+					<%= f.text_field(:synopsis) %>
+					<%= f.label(:synopsis, "Synopsis") %>
+				</div>
+				
+				<div class="file-field input-field">
+		      <div class="btn">
+		        <span>Image</span>
+		        <input name="movie[image]" type="file">
+		      </div>
+		      <div class="file-path-wrapper">
+		        <input class="file-path" type="text">
+		      </div>
+		    </div>
+
+
+				<div class="input-field">
+					<%= f.button("Add Movie", class: "right btn waves-effect waves-light") %>
+				</div>
+			<% end %>
+
+		</div>
+
+	</div>
+</div>

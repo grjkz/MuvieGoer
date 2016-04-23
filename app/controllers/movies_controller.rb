@@ -9,9 +9,12 @@ class MoviesController < ApplicationController
 
   end
 
-  def create
+  # def create
+  #   @movie = Movie.create(movie_params)
+  #   if (@movie.save)
 
-  end
+  #   end
+  # end
 
   def show
 
@@ -28,4 +31,10 @@ class MoviesController < ApplicationController
   def destroy
 
   end
+
+  private
+
+  # def movie_params
+  #   params.require(:movie).permit(:title,:synopsis,:)
+  # end
 end

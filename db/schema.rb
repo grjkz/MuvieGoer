@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20160422025411) do
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.text     "synopsis"
-    t.string   "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
