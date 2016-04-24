@@ -7,7 +7,7 @@
 		<div class="movie-list">
 			<% @movies.each_with_index do |movie, index| %>
 				<div class="row">
-					<%= link_to(movie.title, edit_admin_path(index)) %>
+					<%= link_to(movie.title, edit_admin_path(movie)) %>
 				</div>
 			<% end %>
 		</div>
