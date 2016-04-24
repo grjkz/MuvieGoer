@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-  	@movies = Movie.all
+  	@review = Review.last
   end
 end
