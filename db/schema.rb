@@ -25,10 +25,7 @@ ActiveRecord::Schema.define(version: 20160424201320) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "review_id"
   end
-
-  add_index "movies", ["review_id"], name: "index_movies_on_review_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,11 +45,9 @@ ActiveRecord::Schema.define(version: 20160424201320) do
     t.boolean  "admin",                      default: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.integer  "review_id"
   end
 
   add_index "users", ["alias"], name: "index_users_on_alias", unique: true, using: :btree
-  add_index "users", ["review_id"], name: "index_users_on_review_id", using: :btree
 
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
