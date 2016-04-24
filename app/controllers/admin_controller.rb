@@ -9,9 +9,6 @@ class AdminController < ApplicationController
 
 	def create
 		@movie = Movie.create(movie_params)
-		
-		p movie_params
-		p @movie
 
 		if @movie.save
 			redirect_to admin_path(@movie)
@@ -22,6 +19,7 @@ class AdminController < ApplicationController
 	end
 
 	def show
+		# not really going to be using this since the edit page should be enough
 		@movie = Movie.find(params[:id])
 	end
 	
