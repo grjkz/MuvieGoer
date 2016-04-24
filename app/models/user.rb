@@ -3,4 +3,7 @@ class User < ActiveRecord::Base
   validates :alias, presence: true, uniqueness: true
   validates :password, length: {minimum: 4}, confirmation: true
   validates :password_confirmation, presence: true
+
+  has_many :reviews
+  
 end
