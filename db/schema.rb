@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422025411) do
+ActiveRecord::Schema.define(version: 20160424195646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,10 @@ ActiveRecord::Schema.define(version: 20160422025411) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "review_id"
   end
+
+  add_index "movies", ["review_id"], name: "index_movies_on_review_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "alias",           limit: 20,                 null: false
@@ -33,8 +36,10 @@ ActiveRecord::Schema.define(version: 20160422025411) do
     t.boolean  "admin",                      default: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.integer  "review_id"
   end
 
   add_index "users", ["alias"], name: "index_users_on_alias", unique: true, using: :btree
+  add_index "users", ["review_id"], name: "index_users_on_review_id", using: :btree
 
 end
