@@ -1,6 +1,5 @@
 class AddReviewIdToMovies < ActiveRecord::Migration
   def change
-  	add_column :movies, :review_id, :integer
-  	add_index :movies, :review_id
+  	add_reference :movies, :review_id, index: true
   end
 end
