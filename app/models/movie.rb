@@ -7,5 +7,6 @@ class Movie < ActiveRecord::Base
 	has_attached_file :image, styles: { small: "110x170", med: "180x240", large: "240x360" }, default_url: 'http://placehold.it/180x240'
 	validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] }
 
+	has_many :reviews
 
 end
