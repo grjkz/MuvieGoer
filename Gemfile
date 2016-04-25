@@ -4,6 +4,8 @@ gem 'paperclip'
 gem 'puma'
 gem 'rack-timeout'
 gem 'material_icons'
+# gem 'aws-sdk'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
