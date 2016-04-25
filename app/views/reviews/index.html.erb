@@ -1,10 +1,12 @@
 <%= render "movie_details" %>
 
+<div class="divider"></div>
+
 <div class="post-review right-align">
 
 	<% if (@userReview) %>
 		<!-- USER ALREADY HAS POSTED A REVIEW -->
-		<%= link_to(edit_movie_review_path(@movie, @userReview), class: "btn-floating btn-small waves-effect waves-light green") do %>
+		<%= link_to(edit_movie_review_path(@movie, @userReview), class: "btn-floating btn-small waves-effect waves-light teal lighten-2") do %>
 			<i class="material-icons">mode_edit</i>
 		<% end %>
 	<% elsif (session[:user_id]) %>
@@ -14,7 +16,5 @@
 		<% end %>
 	<% end %>
 </div>
-
-<div class="divider"></div>
 
 <%= render "reviews" %>
