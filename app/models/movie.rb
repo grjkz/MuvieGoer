@@ -11,6 +11,9 @@ class Movie < ActiveRecord::Base
 
 	has_many :reviews, :dependent => :delete_all # || :destroy
 
+	def self.search(search)
+	  where("title ILIKE ?", "%#{search}%")
+	end
 
 	# after_save :destroyOriginal
 

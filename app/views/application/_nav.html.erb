@@ -20,16 +20,9 @@
 			<%= link_to("Movie Index", movies_path) %>
 		</li>
 		<li>
-			<!-- SEARCH FORM -->
 			<div class="right hide-on-small-only">
-				<%= form_tag('/movies/search', method: 'get') do %>
-						<div class="input-field">
-							<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
-							<%= label_tag(:search) do %>
-								<i class="material-icons">search</i>
-							<% end %>
-						</div>
-					<% end %>
+				<!-- SEARCH FORM -->
+				<%= render "search_form" %>
 			</div>
 			<!-- END SEARCH FORM -->
 		</li>
@@ -46,14 +39,8 @@
 		</li>
 		<li>
 			<div class="hide-on-med-and-up">
-				<%= form_tag('/movies/search', method: 'get') do %>
-						<div class="input-field">
-							<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
-							<%= label_tag(:search) do %>
-								<i class="material-icons">search</i>
-							<% end %>
-						</div>
-					<% end %>
+				<!-- SEARCH FORM -->
+				<%= render "search_form" %>
 			</div>
 		</li>
 		<% if (session[:user_id]) %>
