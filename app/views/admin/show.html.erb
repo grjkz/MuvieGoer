@@ -1,6 +1,6 @@
 <%= @movie.image %>
 
-<%= image_tag(@movie.image(:med)) %>
+<%= image_tag(@movie.image.url(:med)) %>
 
 <%= link_to("Add another Movie", new_admin_path) %>
 <%= link_to("All Movies", admin_index_path) %>
