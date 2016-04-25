@@ -23,9 +23,14 @@
 			</div>
 
 		</div> <!-- .movie-wrapper -->
+		
+		<div class="post-review right-align">
+			<%= link_to(new_movie_review_path(@movie), class: "btn-floating btn-small waves-effect waves-light green") do %>
+				<i class="mdi mdi-plus"></i>
+			<% end %>
+		</div>
 
 		<%= render "reviews" %>
 
-	
 	</div>
 </div>
