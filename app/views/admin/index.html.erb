@@ -1,13 +1,16 @@
-<div class="row">
-	<div class="header-text">
-		<h3>Welcome Admin!</h3>
-	</div>
+<div class="header-text">
+	<h3>Welcome Admin!</h3>
+</div>
 
-	<div class="movie-list">
-		<% @movies.each_with_index do |movie, index| %>
-			<div class="row">
+<div class="movie-list row">
+	<% @movies.each_with_index do |movie, index| %>
+		<div class="col s12 m4">
+			<div class="movie-image">
+				<%= image_tag(movie.image.url(:med)) %>
+			</div>
+			<div class="movie-title">
 				<%= link_to(movie.title, edit_admin_path(movie)) %>
 			</div>
-		<% end %>
-	</div>
+		</div>
+	<% end %>
 </div>

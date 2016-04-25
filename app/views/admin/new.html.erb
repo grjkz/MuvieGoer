@@ -2,11 +2,11 @@
 	
 	<%= form_for(@movie, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
 		<div class="input-field">
-			<%= f.text_field(:title) %>
+			<%= f.text_field(:title, required: true) %>
 			<%= f.label(:title, "Title") %>
 		</div>
 		<div class="input-field">
-			<%= f.text_field(:synopsis) %>
+			<%= f.text_area(:synopsis, required: true, class: "materialize-textarea") %>
 			<%= f.label(:synopsis, "Synopsis") %>
 		</div>
 		
