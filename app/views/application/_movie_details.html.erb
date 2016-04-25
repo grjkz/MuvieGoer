@@ -10,7 +10,7 @@
 				<p>Avg. Rating: <%= @movie.reviews.average(:rating) %></p>
 			</div>
 			<div class="col s12 movie-title">
-				<h4><%= link_to(@movie.title, @movie) %></h4>
+				<h4><%= @movie.title %></h4>
 			</div>
 			<div class="col s12 movie-synopsis">
 				<h6><%= @movie.synopsis %></h6>
