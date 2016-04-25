@@ -32,7 +32,12 @@ class AdminController < ApplicationController
 	end
 
 	def update
-
+    @movie = Movie.find(params[:id])
+    if @movie.update_attributes(movie_params)
+    	redirect_to admin_path
+    else
+    	render :edit
+    end
 	end
 
 	def destroy

@@ -1,6 +1,6 @@
 <div class="row">
 	
-	<%= form_for(@movie, :html => {multipart: true}) do |f| %>
+	<%= form_for(@movie, :url => {controller: 'admin', action: 'update'}, :html => {multipart: true}) do |f| %>
 		<div class="input-field">
 				<%= f.text_field(:title) %>
 				<%= f.label(:title, "Title", class: 'active') %>
@@ -21,8 +21,12 @@
 	      </div>
 	    </div>
 
-			<div class="input-field">
-				<%= f.button("Add Movie", class: "right btn waves-effect waves-light") %>
+			<div class="input-field right-align">
+				<%= f.button("Update Movie", class: "btn waves-effect waves-light") %>
 			</div>
 	<% end %>
+
+	<div class="delete right-align">
+		<%= link_to "delete", admin_path(@movie), method: "delete", data: { confirm: "You sure?" } %>
+	</div>
 </div>
