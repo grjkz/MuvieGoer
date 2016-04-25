@@ -13,6 +13,7 @@ class Movie < ActiveRecord::Base
 
 	def self.search(search)
 	  where("title ILIKE ?", "%#{search}%")
+	  where("synopsis ILIKE ?", "%#{search}%")
 	end
 
 	# after_save :destroyOriginal
