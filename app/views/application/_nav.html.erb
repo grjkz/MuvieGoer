@@ -1,6 +1,6 @@
 <nav class="nav-wrapper">
 	<% if (session[:admin]) %>
-		<span class="brand-logo center">You're an Admin!</span>
+		<%= link_to('Admin', root_path, {class: 'brand-logo center'}) %>
 	<% else %>
 		<%= link_to('Muvie Goer', root_path, {class: 'brand-logo center'}) %>
 	<% end %>
@@ -15,25 +15,34 @@
 			<li><%= link_to("Sign Up", '/signup') %></li>
 		<% end %>
 	</ul>
-	
-	<!-- SEARCH FORM -->
-	<div class="right hide-on-small-only">
-		<%= form_tag('/movies/search', method: 'get') do %>
-				<div class="input-field">
-					<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
-					<%= label_tag(:search) do %>
-						<i class="mdi mdi-magnify"></i>
+	<ul class="right">
+		<li class="hide-on-med-and-down">
+			<%= link_to("Movie Index", movies_path) %>
+		</li>
+		<li>
+			<!-- SEARCH FORM -->
+			<div class="right hide-on-small-only">
+				<%= form_tag('/movies/search', method: 'get') do %>
+						<div class="input-field">
+							<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
+							<%= label_tag(:search) do %>
+								<i class="mdi mdi-magnify"></i>
+							<% end %>
+						</div>
 					<% end %>
-				</div>
-			<% end %>
-	</div>
-	<!-- END SEARCH FORM -->
+			</div>
+			<!-- END SEARCH FORM -->
+		</li>
+	</ul>
 	
 	<!-- MOBILE NAV BAR -->
 	<a class="left button-collapse margin-left-10" data-activates="mobile-nav"><i class="mdi mdi-menu"></i></a>
 	<ul id="mobile-nav" class="side-nav red lighten-3">
 		<li>
 			<%= link_to('Muvie Goer', root_path) %>
+		</li>
+		<li>
+			<%= link_to("Movie Index", movies_path) %>
 		</li>
 		<li>
 			<div class="hide-on-med-and-up">
