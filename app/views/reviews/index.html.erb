@@ -5,12 +5,12 @@
 	<% if (@userReview) %>
 		<!-- USER ALREADY HAS POSTED A REVIEW -->
 		<%= link_to(edit_movie_review_path(@movie, @userReview), class: "btn-floating btn-small waves-effect waves-light green") do %>
-			<i class="mdi mdi-tooltip-edit"></i>
+			<i class="material-icons">mode_edit</i>
 		<% end %>
 	<% elsif (session[:user_id]) %>
 		<!-- USER HAS NEVER POSTED A REVIEW -->
 		<%= link_to(new_movie_review_path(@movie), class: "btn-floating btn-small waves-effect waves-light green") do %>
-			<i class="mdi mdi-plus"></i>
+			<i class="material-icons">add</i>
 		<% end %>
 	<% end %>
 </div>

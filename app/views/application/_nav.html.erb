@@ -26,7 +26,7 @@
 						<div class="input-field">
 							<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
 							<%= label_tag(:search) do %>
-								<i class="mdi mdi-magnify"></i>
+								<i class="material-icons">search</i>
 							<% end %>
 						</div>
 					<% end %>
@@ -36,7 +36,7 @@
 	</ul>
 	
 	<!-- MOBILE NAV BAR -->
-	<a class="left button-collapse margin-left-10" data-activates="mobile-nav"><i class="mdi mdi-menu"></i></a>
+	<a class="left button-collapse margin-left-10" data-activates="mobile-nav"><i class="material-icons">menu</i></a>
 	<ul id="mobile-nav" class="side-nav red lighten-3">
 		<li>
 			<%= link_to('Muvie Goer', root_path) %>
@@ -50,7 +50,7 @@
 						<div class="input-field">
 							<%= text_field_tag(:title, params[:title], id: 'search', type: 'search', required: true) %>
 							<%= label_tag(:search) do %>
-								<i class="mdi mdi-magnify"></i>
+								<i class="material-icons">search</i>
 							<% end %>
 						</div>
 					<% end %>
