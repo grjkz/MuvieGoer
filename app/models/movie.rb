@@ -9,4 +9,14 @@ class Movie < ActiveRecord::Base
 
 	has_many :reviews
 
+
+	after_save :destroyOriginal
+
+	private
+
+	# destroys the original size uploaded image to save space
+	# you can also just set the style, 'original' to whatever you want and it should replace the uploaded one
+	def destroyOriginal
+		File.unlink(self.image.path) # self.<column name>.path
+	end
 end
