@@ -1,26 +1,24 @@
-<div class="container">
-	<div class="login-card">
-		<% if flash[:error] %>
-				<div class="error-messages"><%= flash[:error] %></div>
-			<% end %>
+<div class="login-card">
+	<% if flash[:error] %>
+			<div class="error-messages"><%= flash[:error] %></div>
+		<% end %>
 
-			<div class="header-text">
-				<h3>Log In</h3>
-			</div>
-			<div class="login-form">
-				<%= form_for(@user, url: {action: 'create'}) do |f| %>
-					<div class="input-field">
-						<%= f.text_field(:alias, {class: 'validate', required: true, minlength: 6, maxlength: 20}) %>
-						<%= f.label(:alias, "Alias") %>
-					</div>
-					<div class="input-field">
-						<%= f.password_field(:password, {minlength: 4, required: true, class: "validate"}) %>
-						<%= f.label(:password, "Password") %>
-					</div>
-					<div class="input-field">
-						<%= f.button("Create", class: "right btn waves-effect waves-light") %>
-					</div>
-				<% end %>
-			</div>
-	</div>
+		<div class="header-text">
+			<h3>Log In</h3>
+		</div>
+		<div class="login-form">
+			<%= form_for(@user, url: {action: 'create'}) do |f| %>
+				<div class="input-field">
+					<%= f.text_field(:alias, {class: 'validate', required: true, minlength: 6, maxlength: 20}) %>
+					<%= f.label(:alias, "Alias") %>
+				</div>
+				<div class="input-field">
+					<%= f.password_field(:password, {minlength: 4, required: true, class: "validate"}) %>
+					<%= f.label(:password, "Password") %>
+				</div>
+				<div class="input-field">
+					<%= f.button("Create", class: "right btn waves-effect waves-light") %>
+				</div>
+			<% end %>
+		</div>
 </div>

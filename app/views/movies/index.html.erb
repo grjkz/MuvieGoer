@@ -1,32 +1,28 @@
-<div class="container">
-	<div class="col s12 m10 offset-m1 main">
+<div class="movies-list">
+	<% @movies.each do |movie| %>
 
-		<% @movies.each do |movie| %>
+	<div class="row movie-card">
 
-		<div class="row movie-card">
+		<div class="col s12 m4 movie-poster center">
+			<%= image_tag(movie.image(:med)) %>
+		</div>
 
-			<div class="col s12 m4 movie-poster center">
-				<%= image_tag(movie.image(:med)) %>
-			</div>
-
-			<div class="col s12 m8 movie-info">
-				<div class="row">
-					<div class="col s12 movie-rating">
-						<p>Avg. Rating: <%= movie.reviews.average(:rating) %></p>
-					</div>
-					<div class="col s12 movie-title">
-						<h4><%= link_to(movie.title, movie_reviews_path(movie)) %></h4>
-					</div>
-					<div class="col s12 movie-synopsis">
-						<h6><%= movie.synopsis %></h6>
-					</div>
-					
+		<div class="col s12 m8 movie-info">
+			<div class="row">
+				<div class="col s12 movie-rating">
+					<p>Avg. Rating: <%= movie.reviews.average(:rating) %></p>
 				</div>
+				<div class="col s12 movie-title">
+					<h4><%= link_to(movie.title, movie_reviews_path(movie)) %></h4>
+				</div>
+				<div class="col s12 movie-synopsis">
+					<h6><%= movie.synopsis %></h6>
+				</div>
+				
 			</div>
+		</div>
 
-		</div> <!-- .movie -->
+	</div> <!-- .movie -->
 
-		<% end %>
-
-	</div>
+	<% end %>
 </div>
