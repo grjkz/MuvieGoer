@@ -12,6 +12,7 @@ module ApplicationHelper
   end
 
   def averageRating(movie)
-  	movie.reviews.average(:rating).round(1)
+  	avg = movie.reviews.average(:rating)
+    avg == nil ? "-" : avg.round(1)
   end
 end
