@@ -8,6 +8,7 @@
 
 
 admin = User.create({alias: 'admin0', password: 'asdf', password_confirmation: 'asdf', admin: true})
+guest = User.create({alias: 'guest0', password: 'password', password_confirmation: 'password'})
 
 adventChildren = Movie.create({
 	title: 'Final Fantasy VII: Advent Children', 
@@ -15,4 +16,4 @@ adventChildren = Movie.create({
 	image: File.new("public/system/movies/seed/ffvii_poster.jpg")
 	})
 
-review = Review.create({user_id: admin.id, movie_id: adventChildren.id, rating: 10, comment: 'Best muvie EVAR! Nostalgic Epicness!!!!~'})
+review = Review.create({user_id: guest.id, movie_id: adventChildren.id, rating: 10, comment: 'Best muvie EVAR! Nostalgic Epicness!!!!~'})
