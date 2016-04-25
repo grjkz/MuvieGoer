@@ -12,8 +12,10 @@ class Movie < ActiveRecord::Base
 	has_many :reviews, :dependent => :delete_all # || :destroy
 
 	def self.search(search)
-	  where("title ILIKE ?", "%#{search}%")
-	  where("synopsis ILIKE ?", "%#{search}%")
+		# search through the title and synopsis columns
+		# combine the results
+		# remove any duplicate results
+	  ( where("title ILIKE ?", "%#{search}%") + where("synopsis ILIKE ?", "%#{search}%") ).uniq
 	end
 
 	# after_save :destroyOriginal
