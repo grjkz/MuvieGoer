@@ -5,7 +5,7 @@
 	<div class="row movie-wrapper">
 		<div class="col s4">
 			<div class="commented-in">
-				<h6><%= review.movie.title %></h6>
+				<h6><%= link_to(review.movie.title, movie_reviews_path(review.movie)) %></h6>
 			</div>
 		</div>
 		<div class="col s8">
