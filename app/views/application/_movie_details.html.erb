@@ -7,7 +7,7 @@
 	<div class="col s12 m8 movie-info">
 		<div class="row">
 			<div class="col s12 movie-rating">
-				<p>Avg. Rating: <%= @movie.reviews.average(:rating) %></p>
+				<p>Avg. Rating: <%= averageRating(@movie) %></p>
 			</div>
 			<div class="col s12 movie-title">
 				<h4><%= @movie.title %></h4>

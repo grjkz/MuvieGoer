@@ -10,4 +10,8 @@ module ApplicationHelper
       redirect_to signin_path
     end
   end
+
+  def averageRating(movie)
+  	movie.reviews.average(:rating).round(1)
+  end
 end
