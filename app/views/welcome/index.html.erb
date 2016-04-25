@@ -1,22 +1,18 @@
-<div class="row latest-commented">
-	<h3 class="center">Latest Comment</h3>
-
-	<div class="col s12 m4 movie-poster center	">
-		<%= image_tag(@review.movie.image(:med)) %>
-	</div>
-
-	<div class="col s12 m8 movie-info">
-		<div class="row">
-			<div class="col s12 movie-title">
-				<h4><%= link_to(@review.movie.title, @review.movie) %></h4>
-			</div>
-			<div class="col s12 movie-synopsis">
-				<h6><%= @review.movie.synopsis %></h6>
-			</div>
-			<div class="col s12 user-comment">
-				<p><%= @review.comment %></p>
+<div class="latest-reviews">
+	<h3 class="center">Latest Reviews</h3>
+	
+	<% @reviews.each do |review| %>
+	<div class="row movie-wrapper">
+		<div class="col s4">
+			<div class="commented-in">
+				<h6><%= review.movie.title %></h6>
 			</div>
 		</div>
-	</div> <!-- .movie-info -->
+		<div class="col s8">
+			<%= render partial: "review", locals: {review: review} %>
+		</div>
+
+	</div> <!-- .movie-wrapper -->
+	<% end %>
 	
 </div> <!-- .lastest-commented -->
