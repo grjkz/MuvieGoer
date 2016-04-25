@@ -1,6 +1,6 @@
 <nav class="nav-wrapper">
 	<% if (session[:admin]) %>
-		<%= link_to('Admin', root_path, {class: 'brand-logo center'}) %>
+		<%= link_to('Admin', admin_index_path, {class: 'brand-logo center'}) %>
 	<% else %>
 		<%= link_to('Muvie Goer', root_path, {class: 'brand-logo center'}) %>
 	<% end %>

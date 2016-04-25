@@ -1,11 +1,42 @@
+<div class="newest-additions">
+	<h5 class="grey lighten-5">Newest Additions</h5>
+	<% @newestMovies.each do |movie| %>
+
+		<div class="row movie-wrapper">
+			<div class="col s12 m4 movie-poster center">
+				<%= image_tag(movie.image.url(:med)) %>
+			</div>
+
+			<div class="col s12 m8 movie-info">
+				<div class="row">
+					<div class="col s12 movie-rating">
+						<p>Avg. Rating: <%= averageRating(movie) %></p>
+					</div>
+					<div class="col s12 movie-title">
+						<h4><%= link_to(movie.title, movie_reviews_path(movie)) %></h4>
+					</div>
+					<div class="col s12 movie-synopsis">
+						<h6><%= movie.synopsis %></h6>
+					</div>
+					
+				</div>
+			</div>
+
+		</div> <!-- .movie-wrapper -->
+
+	<% end %>
+</div>
+
+
+
 <div class="latest-reviews">
-	<h5>Latest Reviews</h5>
+	<h5 class="grey lighten-5">Latest Reviews</h5>
 	
 	<% @reviews.each_with_index do |review, index| %>
 		<% if (index != 0) %>
 			<div class="divider"></div>
 		<% end %>
-		<div class="row card hoverable review">
+		<div class="row hoverable review">
 			<div class="col s4">
 				<div class="commented-in">
 					<h6><%= link_to(review.movie.title, movie_reviews_path(review.movie)) %></h6>
