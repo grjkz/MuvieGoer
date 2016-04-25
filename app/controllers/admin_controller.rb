@@ -1,4 +1,8 @@
 class AdminController < ApplicationController
+	include AdminHelper
+	before_action :admin_auth
+
+
 	def index
 		@movies = Movie.all
 	end

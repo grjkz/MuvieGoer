@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
-  
+  before_action :logged_in_user, except: [:index]
+
+
   # shows movie info and all associated reviews
   def index
     @movie = Movie.find(params[:movie_id])
@@ -56,4 +58,6 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:rating, :comment)
   end
+
+  
 end

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :movies do
-    resources :reviews
+    resources :reviews, except: [:show]
   end
   
   resources :admin
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   
   resources :sessions
   resources :users
+
+  get "*path" => redirect('/')
+  
   # resources :sessions, only: [:create,:destroy]
   # resources :users, only: [:create]
   
