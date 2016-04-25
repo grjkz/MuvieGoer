@@ -27,6 +27,6 @@
 	<% end %>
 
 	<div class="delete right-align">
-		<%= link_to "delete", admin_path(@movie), method: "delete", data: { confirm: "You sure?" } %>
+		<%= link_to "delete", admin_path(@movie), method: "delete", data: { confirm: "You sure? This will delete all associated reviews as well!" } %>
 	</div>
 </div>

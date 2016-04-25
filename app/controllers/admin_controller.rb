@@ -22,10 +22,10 @@ class AdminController < ApplicationController
 		end
 	end
 
-	def show
-		# not really going to be using this since the edit page should be enough
-		@movie = Movie.find(params[:id])
-	end
+	# def show
+	# 	# not really going to be using this since the edit page should be enough
+	# 	@movie = Movie.find(params[:id])
+	# end
 	
 	def edit
 		@movie = Movie.find(params[:id])
@@ -34,14 +34,15 @@ class AdminController < ApplicationController
 	def update
     @movie = Movie.find(params[:id])
     if @movie.update_attributes(movie_params)
-    	redirect_to admin_path
+    	redirect_to admin_index_path
     else
     	render :edit
     end
 	end
 
 	def destroy
-
+		Movie.destroy(params[:id])
+		redirect_to admin_index_path
 	end
 
 	private

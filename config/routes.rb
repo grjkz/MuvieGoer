@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show]
   end
   
-  resources :admin
+  resources :admin, except: [:show]
 
   get '/signup' => 'users#new'
   get '/signin' => 'sessions#new'
