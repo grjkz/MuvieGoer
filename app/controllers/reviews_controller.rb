@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
   def index
     @movie = Movie.find(params[:movie_id])
     @reviews = @movie.reviews
+    # find user's review
+    @userReview = @reviews.find(session[:user_id])
   end
 
   # form for creating new review
@@ -25,13 +27,13 @@ class ReviewsController < ApplicationController
 
   # user is editing his own review
   def edit
-    @movie = Movie.find(params[:movie_id])
+    @movie = Movie.find(params[:movie_id]) # throws rails error if not found in db :/
     # redirect for error
-    redirect_to movies_path if !@movie.exists?
+    redirect_to movies_path if !@movie
     
     @review = Review.where({user_id: 99, movie_id: @movie.id})
     # redirect for error
-    redirect_to movie_reviews_path(@movie) if !@review.exists?
+    redirect_to movie_reviews_path(@movie) if !@review
 
 
     
