@@ -1,8 +1,8 @@
-<div class="header-text">
-	<h3>Welcome Admin!</h3>
+<div class="admin-nav">
+	<%= link_to("Add Movie", new_admin_path) %>
 </div>
 
-<div class="movie-list row">
+<div class="movie-list center-align row">
 	<% @movies.each_with_index do |movie, index| %>
 		<div class="col s12 m4">
 			<div class="movie-image">

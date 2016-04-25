@@ -18,6 +18,11 @@
 
 </div>
 
+
+<div class="back-button right-align">
+	<%= render "back_button" %>
+</div>
+
 <div class="delete right-align">
 	<%= link_to "delete", movie_review_path(@review.movie, @review), method: "delete", data: { confirm: "You sure?" } %>
 </div>

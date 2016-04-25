@@ -1,35 +1,39 @@
-<div class="row">
-	<div class="movie-image center-align">
-		<%= image_tag(@movie.image.url(:original)) %>
-	</div>
 
-	<%= form_for(@movie, :url => {controller: 'admin', action: 'update'}, :html => {multipart: true}) do |f| %>
+<div class="movie-image center-align">
+	<%= image_tag(@movie.image.url(:original)) %>
+</div>
+
+<%= form_for(@movie, :url => {controller: 'admin', action: 'update'}, :html => {multipart: true}) do |f| %>
+	<div class="input-field">
+			<%= f.text_field(:title, required: true) %>
+			<%= f.label(:title, "Title", class: 'active') %>
+		</div>
 		<div class="input-field">
-				<%= f.text_field(:title, required: true) %>
-				<%= f.label(:title, "Title", class: 'active') %>
-			</div>
-			<div class="input-field">
-				<%= f.text_area(:synopsis, required: true, class: "materialize-textarea") %>
-				<%= f.label(:synopsis, "Synopsis", class: 'active') %>
-			</div>
-			
-			<div class="file-field input-field">
-	      <div class="btn">
-	        <span>Image</span>
-	        <%= f.file_field(:image) %>
-	      </div>
-	      <div class="file-path-wrapper">
-	      	<%= text_field_tag(nil, nil, class: 'file-path') %>
-	        <!-- <input class="file-path" type="text"> -->
-	      </div>
-	    </div>
+			<%= f.text_area(:synopsis, required: true, class: "materialize-textarea") %>
+			<%= f.label(:synopsis, "Synopsis", class: 'active') %>
+		</div>
+		
+		<div class="file-field input-field">
+      <div class="btn">
+        <span>Image</span>
+        <%= f.file_field(:image) %>
+      </div>
+      <div class="file-path-wrapper">
+      	<%= text_field_tag(nil, nil, class: 'file-path') %>
+        <!-- <input class="file-path" type="text"> -->
+      </div>
+    </div>
 
-			<div class="input-field right-align">
-				<%= f.button("Update Movie", class: "btn waves-effect waves-light") %>
-			</div>
-	<% end %>
+		<div class="input-field right-align">
+			<%= f.button("Update Movie", class: "btn waves-effect waves-light") %>
+		</div>
+<% end %>
 
-	<div class="delete right-align">
-		<%= link_to "delete", admin_path(@movie), method: "delete", data: { confirm: "You sure? This will delete all associated reviews as well!" } %>
-	</div>
+
+<div class="back-button right-align">
+<%= render "back_button" %>
+</div>
+
+<div class="delete right-align">
+	<%= link_to "delete", admin_path(@movie), method: "delete", data: { confirm: "You sure? This will delete all associated reviews as well!" } %>
 </div>
