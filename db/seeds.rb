@@ -15,17 +15,17 @@ hater = User.create({alias: 'MOVIEHATR', password: 'moviehater', password_confir
 adventChildren = Movie.create({
 	title: 'Final Fantasy VII: Advent Children', 
 	synopsis: "An ex-mercenary is forced out of isolation when three mysterious men kidnap and brainwash the city's children afflicted with the Geostigma disease.", 
-	image: File.new("public/system/movies/seed/ffvii_poster.jpg")
+	image: File.new("#{Rails.root}/public/system/movies/seed/ffvii_poster.jpg")
 	})
 batmanVSuperman = Movie.create({
 	title: "Batman v Superman: Dawn of Justice",
 	synopsis: "Fearing that the actions of Superman are left unchecked, Batman takes on the Man of Steel, while the world wrestles with what kind of a hero it really needs.",
-	image: File.new("public/system/movies/seed/batmanvsuperman.jpg")
+	image: File.new("#{Rails.root}/public/system/movies/seed/batmanvsuperman.jpg")
 	})
 pulpFiction = Movie.create({
 	title: "Pulp Fiction",
 	synopsis: "The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-	image: File.new("public/system/movies/seed/pulpfiction.jpg")
+	image: File.new("#{Rails.root}/public/system/movies/seed/pulpfiction.jpg")
 	})
 
 Review.create({user_id: guest.id, movie_id: adventChildren.id, rating: 10, comment: 'Best muvie EVAR! Nostalgic Epicness!!!!~'})
