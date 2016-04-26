@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     if params[:search]
       @movies = Movie.search(params[:search])
     else
-      @movies = Movie.all
+      @movies = Movie.order("created_at DESC")
     end
   end
 
