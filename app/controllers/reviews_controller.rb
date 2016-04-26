@@ -48,16 +48,16 @@ class ReviewsController < ApplicationController
 
   def update
     # no matter the :id of the review, user can only modify their own movie review
-    @review = Review.find_by({user_id: session[:user_id], movie_id: params[:movie_id]})
+    @review = Movie.find(params[:movie_id]).reviews.find_by(user_id: session[:user_id])
     if @review.update_attributes(review_params) # automatically saves and returns true or false
-      redirect_to movie_reviews_path(@review.movie_id) # be careful; _path takes the variable's .id instead of the correct .movie_id
+      redirect_to movie_reviews_path(@review.movie) # be careful; _path takes the variable's .id instead of the correct .movie_id
     else
       render :edit, flash.now[:error] = ["Check your input!"]
     end
   end
 
   def destroy
-    Review.find_by({user_id: session[:user_id], movie_id: params[:movie_id]}).delete
+    Movie.find(params[:movie_id]).reviews.find_by(user_id: session[:user_id]).delete
     redirect_to movie_reviews_path(params[:movie_id])
   end
 
