@@ -37,6 +37,7 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id]) # throws rails error if not found in db :/
     # no matter the :id of the review, user can only modify their own movie review
     @review = Review.find_by(user_id: session[:user_id], movie_id: @movie.id)
+    # redirect the user if trying to edit a review he never created
     redirect_to movie_reviews_path(@movie) if !@review
     
   end
