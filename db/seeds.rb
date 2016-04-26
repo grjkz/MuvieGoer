@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-admin = User.create({alias: 'admin0', password: 'asdf', password_confirmation: 'asdf', admin: true})
-guest = User.create({alias: 'guest0', password: 'password', password_confirmation: 'password'})
-lover = User.create({alias: 'MovieLover', password: 'movielover', password_confirmation: 'movielover'})
-hater = User.create({alias: 'MOVIEHATR', password: 'moviehater', password_confirmation: 'moviehater'})
+admin = User.create({email: 'philipchoicodes@gmail.com', alias: 'admin0', password: 'asdf', password_confirmation: 'asdf', admin: true})
+guest = User.create({email: 'philipchoicodes@gmail.com', alias: 'guest0', password: 'password', password_confirmation: 'password'})
+lover = User.create({email: 'philipchoicodes@gmail.com', alias: 'MovieLover', password: 'movielover', password_confirmation: 'movielover'})
+hater = User.create({email: 'philipchoicodes@gmail.com', alias: 'MOVIEHATR', password: 'moviehater', password_confirmation: 'moviehater'})
 
 adventChildren = Movie.create({
 	title: 'Final Fantasy VII: Advent Children', 
