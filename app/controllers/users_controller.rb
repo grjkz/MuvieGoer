@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
+	before_action :logged_out_user
+
+	# form for /signup
 	def new
 		@user = User.new
 	end
 
+	# create new user
 	def create
 		@user = User.create(user_params)
 		

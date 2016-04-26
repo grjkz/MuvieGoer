@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+
+  before_action :logged_out_user, except: [:destroy]
+
+  # form to /signin
 	def new
 		@user = User.new
 	end
@@ -17,6 +21,7 @@ class SessionsController < ApplicationController
   	end
   end
 
+  # signout
   def destroy
   	reset_session
   	redirect_to signin_path

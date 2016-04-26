@@ -11,6 +11,18 @@ module ApplicationHelper
     end
   end
 
+  # returns true if no session
+  def logged_out?
+    session[:user_id] ? false : true
+  end
+
+  # redirects user to "/" if logged in
+  def logged_out_user
+    unless logged_out?
+      redirect_to root_path
+    end
+  end
+
   def averageRating(movie)
   	avg = movie.reviews.average(:rating)
     avg == nil ? "-" : avg.round(1)
