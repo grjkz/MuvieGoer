@@ -1,0 +1,17 @@
+{
+  "name": "muviegoer",
+  "homepage": "https://github.com/grjkz/MuvieGoer",
+  "authors": [
+    "Philip Choi <gorejakz@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower",
+    "test",
+    "tests"
+  ]
+}
