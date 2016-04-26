@@ -11,6 +11,9 @@ class UsersController < ApplicationController
 		@user = User.create(user_params)
 		
 		if @user.save
+			# send welcome email to user
+			UserMailer.welcome_email(@user).deliver
+
 			session[:user_id] = @user.id
 			redirect_to root_path
 		else #user already exists
@@ -40,7 +43,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:alias, :password, :password_confirmation)
+		params.require(:user).permit(:alias, :email, :password, :password_confirmation)
 	end
 
 
