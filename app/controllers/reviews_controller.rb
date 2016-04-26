@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   # shows movie info and all associated reviews
   def index
+    return redirect_to movies_path if (!Movie.exists?(params[:movie_id]))
     @movie = Movie.find(params[:movie_id])
     @reviews = @movie.reviews
 
@@ -29,7 +30,7 @@ class ReviewsController < ApplicationController
     else
       flash[:error] = ["Can not submit another review!"]
     end
-    
+
     redirect_to movie_reviews_path(params[:movie_id])
   end
 
