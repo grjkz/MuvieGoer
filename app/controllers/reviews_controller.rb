@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
       @review.save
     end
 
+    flash[:error] = ["Can not submit another review!"]
     redirect_to movie_reviews_path(params[:movie_id])
   end
 
@@ -43,7 +44,7 @@ class ReviewsController < ApplicationController
     if @review.update_attributes(review_params) # automatically saves and returns true or false
       redirect_to movie_reviews_path(@review)
     else
-      render :edit
+      render :edit, flash.now[:error] = ["Check your input!"]
     end
   end
 
