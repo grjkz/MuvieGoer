@@ -50,9 +50,7 @@ class ReviewsController < ApplicationController
     # no matter the :id of the review, user can only modify their own movie review
     @review = Review.find_by({user_id: session[:user_id], movie_id: params[:movie_id]})
     if @review.update_attributes(review_params) # automatically saves and returns true or false
-      p "**************************************"
-      p (@review)
-      redirect_to movie_reviews_path(@review.movie_id)
+      redirect_to movie_reviews_path(@review.movie_id) # be careful; _path takes the variable's .id instead of the correct .movie_id
     else
       render :edit, flash.now[:error] = ["Check your input!"]
     end
