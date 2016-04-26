@@ -38,6 +38,12 @@
 	margin: 10px 0;
 }
 
+
+/*For some reason, materialize search height broke; this is to fix it*/
+input[type="search"] {
+	height: 64px !important;
+}
+
 /*.movie-card {
 	width: 250px;
 	display: inline-block;
