@@ -1,0 +1,14 @@
+
+<!-- ERROR MESSAGES -->
+<% if flash[:error] %>
+	<div class="error-messages red-text">
+		<ul>
+
+			<% flash[:error].each do |msg| -%>
+		    <li><%= msg %></li>
+		  <% end -%>
+
+		</ul>
+
+	</div>
+<% end %>
