@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :movies do
+  resources :movies, only: [:index] do
     resources :reviews, except: [:show]
   end
   
@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   get '/signout' => 'sessions#destroy'
   
-  resources :sessions
-  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   get "*path" => redirect('/')
   
