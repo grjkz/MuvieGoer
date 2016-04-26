@@ -4,7 +4,9 @@ class ReviewsController < ApplicationController
 
   # shows movie info and all associated reviews
   def index
+    # redirect user if attemping to access non-existant record (to prevent server error)
     return redirect_to movies_path if (!Movie.exists?(params[:movie_id]))
+    
     @movie = Movie.find(params[:movie_id])
     @reviews = @movie.reviews
 
@@ -48,7 +50,9 @@ class ReviewsController < ApplicationController
     # no matter the :id of the review, user can only modify their own movie review
     @review = Review.find_by({user_id: session[:user_id], movie_id: params[:movie_id]})
     if @review.update_attributes(review_params) # automatically saves and returns true or false
-      redirect_to movie_reviews_path(@review)
+      p "**************************************"
+      p (@review)
+      redirect_to movie_reviews_path(@review.movie_id)
     else
       render :edit, flash.now[:error] = ["Check your input!"]
     end
