@@ -35,11 +35,14 @@ class ReviewsController < ApplicationController
   # user is editing his own review
   def edit
     @movie = Movie.find(params[:movie_id]) # throws rails error if not found in db :/
+    # no matter the :id of the review, user can only modify their own movie review
     @review = Review.find_by(user_id: session[:user_id], movie_id: @movie.id)
+    redirect_to movie_reviews_path(@movie) if !@review
     
   end
 
   def update
+    # no matter the :id of the review, user can only modify their own movie review
     @review = Review.find_by({user_id: session[:user_id], movie_id: params[:movie_id]})
     if @review.update_attributes(review_params) # automatically saves and returns true or false
       redirect_to movie_reviews_path(@review)
