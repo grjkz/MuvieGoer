@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :movies, only: [:index] do
-    resources :reviews, except: [:show]
+    resource :reviews, except: [:show]
+    resources :reviews, only: :index
   end
   
   resources :admin, except: [:show]
