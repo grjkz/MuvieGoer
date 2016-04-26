@@ -2,8 +2,9 @@
 	
 	<%= form_for(@review, url: {action: 'create'}) do |f| %>
 		<div class="input-field rating-select">
-			<%= f.select(:rating, (1..10), selected: 5) %>
-			<%= f.label(:rating, "Rating") %>
+			<%# f.select(:rating, (1..10), selected: 5) %>
+			<%# f.label(:rating, "Rating") %>
+			<div id="rateyo"></div>
 		</div>
 		
 		<div class="input-field">
@@ -21,3 +22,11 @@
 <div class="back-button right-align">
 	<%= render "back_button" %>
 </div>
+
+<script>
+	$(function() {
+		$('#rateyo').rateYo({
+			
+		})
+	})
+</script>

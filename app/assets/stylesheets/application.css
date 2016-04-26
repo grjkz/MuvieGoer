@@ -1,5 +1,5 @@
-@import "materialize";
-@import "material_icons";
+/*@import "materialize";*/
+/*@import "material_icons";*/
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -13,9 +13,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ * require_tree .
+ *= require materialize
+ *= require material_icons
+ *= require rateyo/min/jquery.rateyo.min
+ *= require main
  *= require_self
  */
-@import "main";
-@import "welcome";
-@import "admin";
+
+
+/*@import "main";*/
+/*@import "welcome";*/
+/*@import "admin";*/
