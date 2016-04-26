@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     return redirect_to movies_path if (!Movie.exists?(params[:movie_id]))
     
     @movie = Movie.find(params[:movie_id])
-    @reviews = @movie.reviews
+    @reviews = @movie.reviews.order("created_at DESC")
 
     # find user's review
     @userReview = @reviews.find_by(user_id: session[:user_id])
