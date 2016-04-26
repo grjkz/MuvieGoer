@@ -6,7 +6,7 @@ gem 'rack-timeout'
 gem 'material_icons'
 # gem 'aws-sdk'
 gem 'dotenv-rails', :groups => [:development, :test]
-
+gem 'friendly_id', '~> 5.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

@@ -1,10 +1,11 @@
 class Movie < ActiveRecord::Base
-	# title
-	# synopsis
-	# picture
+
+	extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
+	
+
 	# has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 	 #  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-
 	# style: original will overwrite the actual uploaded image. useful for gigantic image files
 	has_attached_file :image, styles: { small: "110x170", med: "180x240", original: '240x360' }, default_url: 'http://placehold.it/180x240'
 	validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] }
@@ -17,6 +18,8 @@ class Movie < ActiveRecord::Base
 		# remove any duplicate results
 	  ( where("title ILIKE ?", "%#{search}%") + where("synopsis ILIKE ?", "%#{search}%") ).uniq
 	end
+
+
 
 	# after_save :destroyOriginal
 
