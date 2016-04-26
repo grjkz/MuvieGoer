@@ -26,9 +26,10 @@ class ReviewsController < ApplicationController
       @review.movie_id = @movie.id 
       @review.user_id = @user.id 
       @review.save
+    else
+      flash[:error] = ["Can not submit another review!"]
     end
-
-    flash[:error] = ["Can not submit another review!"]
+    
     redirect_to movie_reviews_path(params[:movie_id])
   end
 
