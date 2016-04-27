@@ -2,8 +2,11 @@
 	
 	<%= form_for(@review, url: {action: 'update'}) do |f| %>
 		<div class="input-field rating-select">
-			<%= f.select(:rating, (1..10)) %>
+			<%# f.select(:rating, (1..10)) %>
+			<%# f.label(:rating, "Rating") %>
+			<div id="rateyo"></div>
 			<%= f.label(:rating, "Rating") %>
+			<%= f.number_field(:rating, hidden: true, class: "validate") %>
 		</div>
 		
 		<div class="input-field">
@@ -26,3 +29,16 @@
 <div class="delete right-align">
 	<%= link_to "delete", movie_reviews_path, method: "delete", data: { confirm: "You sure?" } %>
 </div>
+
+<script>
+	$(function() {
+		$('#rateyo').rateYo({
+			maxValue: 10,
+			rating: $('#review_rating').val(),
+			halfStar: true,
+			onSet: function(rating, rateYoInstance) {
+				$('#review_rating').val(rating);
+			}
+		})
+	})
+</script>
