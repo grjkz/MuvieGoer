@@ -10,7 +10,8 @@
 		<div class="col s12 m8 movie-info">
 			<div class="row">
 				<div class="col s12 movie-rating">
-					<p>Avg. Rating: <%= averageRating(movie) %></p>
+					<div class="left static-rating" data-value="<%= averageRating(movie) %>"></div>
+					<div class="left"><%= averageRating(movie) %></div>
 				</div>
 				<div class="col s12 movie-title">
 					<h4><%= link_to(movie.title, movie_reviews_path(movie)) %></h4>

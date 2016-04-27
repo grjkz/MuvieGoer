@@ -29,16 +29,3 @@
 <div class="delete right-align">
 	<%= link_to "delete", movie_reviews_path, method: "delete", data: { confirm: "You sure?" } %>
 </div>
-
-<script>
-	$(function() {
-		$('#rateyo').rateYo({
-			maxValue: 10,
-			rating: $('#review_rating').val(),
-			halfStar: true,
-			onSet: function(rating, rateYoInstance) {
-				$('#review_rating').val(rating);
-			}
-		})
-	})
-</script>

@@ -24,16 +24,3 @@
 <div class="back-button right-align">
 	<%= render "back_button" %>
 </div>
-
-<script>
-	$(function() {
-		$('#rateyo').rateYo({
-			maxValue: 10,
-			rating: 5,
-			halfStar: true,
-			onSet: function(rating, rateYoInstance) {
-				$('#review_rating').val(rating);
-			}
-		})
-	})
-</script>
