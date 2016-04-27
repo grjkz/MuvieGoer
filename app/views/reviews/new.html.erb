@@ -5,6 +5,8 @@
 			<%# f.select(:rating, (1..10), selected: 5) %>
 			<%# f.label(:rating, "Rating") %>
 			<div id="rateyo"></div>
+			<%= f.label(:rating, "Rating") %>
+			<%= f.number_field(:rating, value: 5, hidden: true, class: "validate") %>
 		</div>
 		
 		<div class="input-field">
@@ -26,7 +28,12 @@
 <script>
 	$(function() {
 		$('#rateyo').rateYo({
-			
+			maxValue: 10,
+			rating: 5,
+			halfStar: true,
+			onSet: function(rating, rateYoInstance) {
+				$('#review_rating').val(rating);
+			}
 		})
 	})
 </script>

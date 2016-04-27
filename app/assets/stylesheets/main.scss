@@ -17,10 +17,6 @@
 	font-weight: 600;
 }
 
-.rating-select {
-	width: 32px;
-}
-
 .user-review p {
 	margin-top: 0;
 	white-space: pre-wrap;
@@ -38,7 +34,17 @@
 	margin: 10px 0;
 }
 
+.rating-select {
+	margin: 15px 0;
+}
 
+#rateyo {
+	margin: 30px 0;
+}
+
+.rating-select > label {
+	top: 0;
+}
 /*For some reason, materialize search height broke; this is to fix it*/
 input[type="search"] {
 	height: 64px !important;
