@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 4}, confirmation: true
   validates :password_confirmation, presence: true
 
-  has_many :reviews
+  has_many :reviews, :dependent => :delete_all
   
 end
