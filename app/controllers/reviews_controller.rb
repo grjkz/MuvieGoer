@@ -26,9 +26,12 @@ class ReviewsController < ApplicationController
       @review = Review.create(review_params)
       @movie = Movie.find(params[:movie_id])
       @user = User.find(session[:user_id])
-      @review.movie_id = @movie.id 
-      @review.user_id = @user.id 
-      @review.save
+      @review.movie_id = @movie.id
+      @review.user_id = @user.id
+      if (!@review.save)
+        flash[:error] = @review.errors.full_messages
+        return redirect_to :back
+      end
     else
       flash[:error] = ["Can not submit another review!"]
     end
@@ -52,7 +55,8 @@ class ReviewsController < ApplicationController
     if @review.update_attributes(review_params) # automatically saves and returns true or false
       redirect_to movie_reviews_path(@review.movie) # be careful; _path takes the variable's .id instead of the correct .movie_id
     else
-      render :edit, flash.now[:error] = ["Check your input!"]
+      flash[:error] = ["Invalid Input!"]
+      redirect_to action: :edit
     end
   end
 
