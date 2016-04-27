@@ -9,5 +9,9 @@ class MoviesController < ApplicationController
     end
   end
 
+  # for users who actually type the show path, redirect to reviews
+  def show
+    redirect_to "#{movie_path(params[:id])}/reviews"
+  end
 
 end
