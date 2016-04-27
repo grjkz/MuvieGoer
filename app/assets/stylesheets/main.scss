@@ -38,6 +38,10 @@
 	margin: 15px 0;
 }
 
+.movie-rating {
+	font-size: 11px;
+}
+
 #rateyo {
 	margin: 30px 0;
 }
@@ -45,6 +49,7 @@
 .rating-select > label {
 	top: 0;
 }
+
 /*For some reason, materialize search height broke; this is to fix it*/
 input[type="search"] {
 	height: 64px !important;
