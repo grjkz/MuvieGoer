@@ -17,6 +17,7 @@
  *= require materialize
  *= require material_icons
  *= require rateyo/min/jquery.rateyo.min
+ *= require admin
  *= require main
  *= require_self
  */
