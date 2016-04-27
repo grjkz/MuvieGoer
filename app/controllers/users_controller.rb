@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 			redirect_to root_path
 		else #user already exists
 			flash[:error] = @user.errors.full_messages
-			redirect_to new_user_path
+			redirect_to signup_path
 		end
 		
 	end
