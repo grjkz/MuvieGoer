@@ -4,7 +4,7 @@ gem 'paperclip'
 gem 'puma'
 gem 'rack-timeout'
 gem 'material_icons'
-# gem 'aws-sdk'
+gem 'aws-sdk'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'friendly_id', '~> 5.1.0'
 
